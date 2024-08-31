@@ -1,32 +1,42 @@
-# NFT Management Script
+// Initialize an empty array to store NFTs
+const arr = [];
 
-## Overview
+// Function to mint a new NFT
+function mintNFT(name, religion, gender, age, height) {
+    const obj_nft = {
+        "Name": name,
+        "Religion": religion,
+        "Gender": gender,
+        "Age": age,
+        "Height": height,
+    };
+    arr.push(obj_nft);
+    console.log("Name: " + name);
+}
 
-This JavaScript script is designed to manage NFTs (Non-Fungible Tokens) by allowing you to mint new NFTs, list all minted NFTs, and get the total number of NFTs created. It uses a simple array to store NFT data and provides functions to interact with this data.
+// Function to list all NFTs and their metadata
+function listNFTs() {
+    for (let i = 0; i < arr.length; i++) {
+        console.log("\nNFT ID: " + (i + 1));
+        console.log("Name: " + arr[i].Name);
+        console.log("Religion: " + arr[i].Religion);
+        console.log("Gender: " + arr[i].Gender);
+        console.log("Age: " + arr[i].Age);
+        console.log("Height: " + arr[i].Height);
+    }
+}
 
-## Features
+// Function to get the total number of NFTs minted
+function getTotalSupply() {
+    return arr.length;
+}
 
-- **Minting**: Create and add new NFTs with metadata.
-- **Listing**: Display the metadata of all NFTs in the system.
-- **Counting**: Get the total number of NFTs that have been minted.
+// Mint some NFTs
+mintNFT("Keshav", "Hinduism", "Male", "20", "6.7");
+mintNFT("Aniket", "Hinduism", "Male", "22", "5.9");
+mintNFT("Ekampreet", "Sikhism", "Female", "18", "6.3");
+mintNFT("Ishan", "Christian", "Male", "19", "5.8");
 
-## Code Overview
-
-### Variables
-
-- **`arr`**: An array that stores all NFT objects.
-
-### Functions
-
-#### `mintNFT(name, religion, gender, age, height)`
-
-- **Description**: Creates a new NFT with the provided metadata and adds it to the `arr` array.
-- **Parameters**:
-  - `name`: The name associated with the NFT.
-  - `religion`: The religion associated with the NFT.
-  - `gender`: The gender associated with the NFT.
-  - `age`: The age associated with the NFT.
-  - `height`: The height associated with the NFT.
-- **Usage Example**:
-  ```javascript
-  mintNFT("John Doe", "Christianity", "Male", "30", "5.9");
+// List all NFTs and print the total number of NFTs
+listNFTs();
+console.log("\nNumber of NFTs created is: " + getTotalSupply());
